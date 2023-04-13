@@ -43,11 +43,11 @@ include '../PHPMailer/PHPMailerAutoload.php';
       $mail->Username = $sender_email;
       $mail->Password = $sender_mail_password;
       $mail->SetFrom($sender_email, $sender_name);
-      $mail->Subject = 'Anisha';
+      $mail->Subject = 'AKAK';
       $email_template ="
       <h2>you have register with amir</h2>
       <h5>verify your email address to login please check the link below</h5>
-      <a href='http://localhost/personal-webpage/admin/verify_email.php?token =$v_token'>Click here</a>
+      <a href='http://localhost/personal-webpage/admin/verifi_emial.php?token=$v_token'>Click here</a>
       ";
       $mail->Body = $email_template;
       $mail->AddAddress($receiver_email);
@@ -55,7 +55,7 @@ include '../PHPMailer/PHPMailerAutoload.php';
       if (!$mail->send()) {
           echo $mail->ErrorInfo . '<br>';
       } else {
-          echo 'Email has been sent. <br>';
+          // echo 'Email has been sent. <br>';
       }
 
     }
@@ -81,7 +81,7 @@ include '../PHPMailer/PHPMailerAutoload.php';
           header('location:register.php');
   
         }else{
-          $insert_query ="INSERT INTO `tbl_user`(username,phone,email,password,v_token)values('$name','$phone','$email','$password','$v_token')";
+          $insert_query ="INSERT INTO `tbl_user`(username,phone,email,password,v_token,v_status)values('$name','$phone','$email','$password','$v_token','0')";
           $insert_row = $this->db->insert($insert_query);
           if($insert_row){
             sendmail_varifi($name,$email,$v_token);

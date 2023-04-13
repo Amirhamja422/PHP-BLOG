@@ -1,3 +1,14 @@
+<?php
+  include '../classes/AdminLogin.php';
+  $al = new AdminLogin();
+  if($_SERVER['REQUEST_METHOD']=='POST'){
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $checkLogin =  $al->LoginUser($email,$password);
+
+  }
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -17,17 +28,37 @@
     <div class="container py-5">
         <div class="row d-flex justify-content-center">
             <div class="col-md-6">
+
+               <span>
+                <?php
+                if(isset($_SESSION['status'])){?>
+                <div class="alert alert-primary" role="alert">
+                    <?php echo $_SESSION['status'];?>
+                </div>
+                <?php } ?>
+                </span>
+
+
+                <span>
+                <?php
+                if(isset($checkLogin)){?>
+                <div class="alert alert-primary" role="alert">
+                    <?php echo $checkLogin;?>
+                </div>
+                <?php } ?>
+                </span>
+
                 <div class="card">
                     <h5 class="card-header">Login Form</h5>
                     <div class="card-body">
-                        <form>
+                        <form method ="POST">
                             <div class="form-group">
                                 <label for="email">Email address</label>
-                                <input type="email" class="form-control" id="email" aria-describedby="email">
+                                <input type="email" class="form-control" id="email" name ="email" aria-describedby="email">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password">
+                                <input type="password" class="form-control" id="password" name="password">
                             </div>
                             <button type="submit" class="btn btn-primary">Login</button>
                             <a href="" class="btn btn-primary">Sign up</a>

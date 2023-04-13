@@ -18,7 +18,7 @@ class Session{
  } 
 
 
- public function loginCheck(){
+ public static function loginCheck(){
     self::init();
     if(self::get('login')== true){
         header('location:index.php');
@@ -27,7 +27,7 @@ class Session{
 
 
  
- public function checkSession(){
+ public static function checkSession(){
     self::init();
     if(self::get('login')== false){
         self::destroy();    
@@ -36,7 +36,7 @@ class Session{
  }
 
 
- public function destroy(){
+ public static function destroy(){
     session_destroy();
     header('location:login.php');
 
