@@ -53,5 +53,41 @@ class Category{
         }
     }
 
+
+    public function getEditCat($id){
+        $editData = "SELECT * FROM tbl_category WHERE cat_id = $id";
+        $editResult = $this->db->select($editData);
+        return $editResult;
+
+    }
+
+
+    public function UpdateCategory($cat_name,$id){
+        $catName = $this->fr->validation($cat_name);
+
+        if(empty($catName)){
+           $msg ="Category name filed must not be empty";
+           return $msg;
+        }else{
+           $query = "SELECT * FROM tbl_category WHERE cat_name = '$catName'";
+           $result = $this->db->select($query);
+   
+           if($result > 0){
+               $msg = "Category name already added";
+               return $msg;
+           }else{
+               $update_query = "UPDATE tbl_category SET cat_name ='$catName' where cat_id = '$id'";
+               $update_row = $this->db->insert($update_query);
+               if($update_row){
+                header('location:categoryList.php');
+                   $msg = "Category Update successfully";
+                   return $msg;
+               }else{
+                   $msg= "Something wrong";
+               }
+           }
+        }
+    }
+
 }
 ?>
