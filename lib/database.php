@@ -23,7 +23,7 @@
     }
 
 
-    public  function select($query){
+    public function select($query){
         $result = mysqli_query($this->link,$query) or die($this->link->error.__LINE__);
         if(mysqli_num_rows($result)>0){
             return $result;
@@ -34,7 +34,7 @@
 
 
 
-    public  function insert($query){
+    public function insert($query){
         $result = mysqli_query($this->link,$query) or die($this->link->error.__LINE__);
         if($result){
             return $result;
@@ -44,7 +44,7 @@
 
     }
 
-    public  function update($query){
+    public function update($query){
         $result = mysqli_query($this->link,$query) or die($this->link->error.__LINE__);
         if($result){
             return $result;
