@@ -1,5 +1,7 @@
 <?php
- include '../config/config.php';
+$filepath = realpath(dirname(__FILE__));
+
+ include ($filepath.'/../config/config.php');
  class Database{
     public $host = HOST;    
     public $user = USER;

@@ -61,6 +61,20 @@
 
 
                             <li>
+                                <a href="postAdd.php">
+                                    <i class="uil-home-alt"></i><span class="badge rounded-pill bg-primary float-end">NEW</span>
+                                    <span>Add Post</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="postList.php">
+                                    <i class="uil-home-alt"></i><span class="badge rounded-pill bg-primary float-end"></span>
+                                    <span>Post List</span>
+                                </a>
+                            </li>
+
+                            <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="uil-window-section"></i>
                                     <span>Layouts</span>

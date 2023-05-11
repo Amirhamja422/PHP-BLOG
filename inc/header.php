@@ -1,7 +1,14 @@
+<?php
+ include 'classes/category.php';
+ $ct = new Category();
+
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Colorlib Wordify &mdash; Minimal Blog Template</title>
+    <title>TECH BLOG&mdash;blog webpage</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -48,7 +55,7 @@
           <div class="row pt-5">
             <div class="col-12 text-center">
               <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
-              <h1 class="site-logo"><a href="index.html">Wordify</a></h1>
+              <h1 class="site-logo"><a href="index.html">TECH</a></h1>
             </div>
           </div>
         </div>
@@ -80,11 +87,23 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="category.html" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
                   <div class="dropdown-menu" aria-labelledby="dropdown05">
+
+                  <?php
+
+                    $allCat = $ct->AllCategory();
+                    if($allCat){
+                       while($catRow = mysqli_fetch_assoc($allCat)){?>
+                      
+                        <a class="dropdown-item" href="category.php"><?php echo $catRow['cat_name'];?></a>
+                       <?php  }}?>
+<!-- 
+
+                  
                     <a class="dropdown-item" href="category.html">Lifestyle</a>
                     <a class="dropdown-item" href="category.html">Food</a>
                     <a class="dropdown-item" href="category.html">Adventure</a>
                     <a class="dropdown-item" href="category.html">Travel</a>
-                    <a class="dropdown-item" href="category.html">Business</a>
+                    <a class="dropdown-item" href="category.html">Business</a> -->
                   </div>
 
                 </li>

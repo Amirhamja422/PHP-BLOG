@@ -1,6 +1,7 @@
 <?php
-include '../lib/database.php';
-include '../lib/formate.php';
+$filepath = realpath(dirname(__FILE__));
+include ($filepath.'/../lib/database.php');
+include ($filepath.'/../lib/formate.php');
 
 class Category{
     
@@ -86,6 +87,20 @@ class Category{
                    $msg= "Something wrong";
                }
            }
+        }
+    }
+
+
+    public function DeleteCategory($id){
+        $delQuery = "DELETE FROM tbl_category WHERE cat_id = '$id'";
+        $result = $this->db->delete($delQuery);
+        if($result){               
+        header('location:categoryList.php');
+         $msg = "Category deleted successfully";
+         return $msg;
+        }else{
+            $msg ="something went wrong";
+            return $msg;
         }
     }
 

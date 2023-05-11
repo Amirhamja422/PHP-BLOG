@@ -4,9 +4,15 @@ include 'inc/sidebar.php';
 include '../classes/category.php';
 
 $cat = new Category();
-$allCat = $cat->AllCategory($cat_name);
+$allCat = $cat->AllCategory();
 
+if(isset($_GET['delId'])){
+    $id = base64_decode($_GET['delId']);
+    $deleteCat = $cat->DeleteCategory($id);
+
+}
 ?>
+
 
 <div class="main-content">
 
@@ -17,6 +23,21 @@ $allCat = $cat->AllCategory($cat_name);
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
+                        <?php 
+                        // if(!isset($_GET['id'])){
+                        // echo '<meta http-equiv="refresh" content="0;url=http://domain.com?a=1&b=2';
+                        // }
+                        ?>    
+  
+                    <span>
+                        <?php
+                        if (isset($deleteCat)) { ?>
+                            <div class="alert alert-primary" role="alert">
+                                <?php echo $deleteCat; ?>
+                            </div>
+                        <?php } ?>
+                    </span>
+                
 
                             <h4 class="card-header">Category List</h4>
 
@@ -42,7 +63,7 @@ $allCat = $cat->AllCategory($cat_name);
                                                 <td><?php echo $row['cat_name']; ?></td>
                                                 <td>
                                                     <a href="catEdit.php?editId=<?php echo base64_encode($row['cat_id']);?>" class="btn btn-success btn-primary">Edit</a>
-                                                    <a href="" class="btn btn-success btn-danger">Delete</a>
+                                                    <a href="?delId=<?php echo base64_encode($row['cat_id']);?>" onclick="return confirm('Are You Sure Delete <?php echo $row['cat_id'];?>')" class="btn btn-success btn-danger">Delete</a>
 
                                                 </td>
 

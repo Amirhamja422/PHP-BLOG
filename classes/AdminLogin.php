@@ -28,6 +28,7 @@ class AdminLogin{
         $row = mysqli_fetch_assoc($result);
         if($row['v_status']==1){
          Session::set('login',true);
+         Session::set('userId',$row['userId']);
          Session::set('username',$row['username']);
          Session::set('email',$row['email']);
          header('Location:index.php');
