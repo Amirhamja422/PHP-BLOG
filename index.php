@@ -27,7 +27,7 @@ $fr  = new Format();
                   while($row = mysqli_fetch_assoc($getPost)){?>
 
                 <div class="col-md-6">
-                  <a href="blog-single.html" class="blog-entry element-animate" data-animate-effect="fadeIn">
+                  <a href="blog-single.php?singleId=<?php echo $row['post_id'];?>" class="blog-entry element-animate" data-animate-effect="fadeIn">
                   <img src="admin/<?php echo $row['image_one'];?>" alt="Image placeholder">
                     <div class="blog-content-body">
                       <div class="post-meta">
@@ -35,7 +35,7 @@ $fr  = new Format();
                         <span class="mr-2"><?php echo $fr->formatDate($row['create_time']);?> </span> &bullet;
                         <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
                       </div>
-                      <h2><?php echo $row['cat_id'] ;?></h2>
+                      <h2><?php echo $row['post_title'] ;?></h2>
                     </div>
                   </a>
                 </div>
