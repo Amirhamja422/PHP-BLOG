@@ -100,7 +100,7 @@ class post{
 
   public function singlePost($id){
     // echo "<script>alert('ok');</script>";
-    $single_query = "SELECT tbl_post.*, tbl_user.username, tbl_category.cat_name, tbl_post.post_title FROM tbl_post INNER JOIN tbl_user ON tbl_post.userId = tbl_user.userId INNER JOIN tbl_category ON tbl_post.cat_id = tbl_category.cat_id  where tbl_post.post_id ='$id'";
+    $single_query = "SELECT tbl_post.*, tbl_user.username, tbl_category.cat_name, tbl_post.post_title, tbl_post.post_id FROM tbl_post INNER JOIN tbl_user ON tbl_post.userId = tbl_user.userId INNER JOIN tbl_category ON tbl_post.cat_id = tbl_category.cat_id  where tbl_post.post_id ='$id'";
     $single_result = $this->db->select($single_query);
     return $single_result;
   }
