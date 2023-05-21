@@ -127,14 +127,15 @@ class post{
   }
 
 
-  // public function allView($id){
-  //   $viewData = "SELECT * FROM tbl_post WHERE post_id = $id";
-  //   $viewDataResult = $this->db->select($viewData);
-  //   return $viewDataResult;
-  //   // $md = "SELECT tbl_post.*, tbl_category.catName FROM tbl_post inner join tbl_category on tbl_post.catId = tbl_category.catId";
-  //   // $mr = $this->db->select($md);
-  //   // return $mr;
-  // }
+
+  public function sliderPost(){
+    // echo "<script>alert('ok');</script>";
+    $slider_query = "SELECT tbl_post.*, tbl_category.cat_name, tbl_user.username, tbl_user.pro_image FROM tbl_post INNER JOIN tbl_category ON tbl_post.cat_id =tbl_category.cat_id INNER JOIN tbl_user on tbl_post.userId = tbl_user.userId WHERE post_type = 2 AND status = 1";
+    $slider_result = $this->db->select($slider_query);
+    return $slider_result;
+  
+  }
+  
 
 
 

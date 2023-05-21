@@ -1,6 +1,14 @@
 <?php include 'inc/header.php';?>
 <?php include 'inc/slider.php';?>
+<?php 
+$filepath = realpath(dirname(__FILE__));
+include_once ($filepath.'/classes/siteOption.php');
+ 
+$about_us = new siteOption();
 
+
+
+?>
 
     <section class="site-section pt-5">
       <div class="container">
@@ -9,14 +17,22 @@
           <div class="col-md-12 col-lg-8 main-content">
             
             <div class="row">
+
+              <?php
+             echo $allAbout = $about_us->aboutInfo();
+              if($allAbout){
+              while($allAbout = mysqli_fetch_assoc($allAbout)){?>
+
               <div class="col-md-12">
-                <h2 class="mb-4">Hi There! I'm Craig David</h2>
+                <h2 class="mb-4"><?php echo $allAbout['userName'];?></h2>
                 <p class="mb-5"><img src="images/img_6.jpg" alt="Image placeholder" class="img-fluid"></p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum minima eveniet recusandae suscipit eum laboriosam fugit amet deleniti iste et. Ad dolores, necessitatibus non saepe tenetur impedit commodi quibusdam natus repellat, exercitationem accusantium perferendis officiis. Laboriosam impedit quia minus pariatur!</p>
                 <p>Dignissimos iste consectetur, nemo magnam nulla suscipit eius quibusdam, quo aperiam quia quae est explicabo nostrum ab aliquid vitae obcaecati tenetur beatae animi fugiat officia id ipsam sint? Obcaecati ea nisi fugit assumenda error totam molestiae saepe fugiat officiis quam?</p>
                 <p>Culpa porro quod doloribus dolore sint. Distinctio facilis ullam voluptas nemo voluptatum saepe repudiandae adipisci officiis, explicabo eaque itaque sed necessitatibus, fuga, ea eius et aliquam dignissimos repellendus impedit pariatur voluptates. Dicta perferendis assumenda, nihil placeat, illum quibusdam. Vel, incidunt?</p>
                 <p>Dolorum blanditiis illum quo quaerat, possimus praesentium perferendis! Quod autem optio nobis, placeat officiis dolorem praesentium odit. Vel, cum, a. Adipisci eligendi eaque laudantium dicta tenetur quod, pariatur sunt sed natus officia fuga accusamus reprehenderit ratione, provident possimus ut voluptatum.</p>
               </div>
+              <?php }} ?>  
+
             </div>
 
             <div class="row mb-5 mt-5">

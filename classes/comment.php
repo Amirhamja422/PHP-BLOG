@@ -51,6 +51,7 @@ include_once ($filepath.'/../lib/formate.php');
 // }
 
 public function allComment($pId){
+  // $query = "SELECT tbl_comment.*, tbl_post.post_id FROM tbl_comment INNER JOIN tbl_post ON tbl_comment.postId =tbl_post.post_id where tbl_comment.postId = '$pId'  AND tbl_comment.status == '1'";
   $query = "SELECT tbl_comment.*, tbl_post.post_id FROM tbl_comment INNER JOIN tbl_post ON tbl_comment.postId =tbl_post.post_id where tbl_comment.postId = '$pId'";
   $allPost = $this->db->select($query);
   if($allPost !== false){
@@ -59,6 +60,36 @@ public function allComment($pId){
       return false;
   }
 }
+
+
+public function adminComment($id){
+  $query = "SELECT tbl_comment.*, tbl_user.userId FROM tbl_comment INNER JOIN tbl_user ON tbl_comment.userId =tbl_user.userId where tbl_comment.userId = '$id'";
+  $adminCom = $this->db->select($query);
+  return $adminCom;
+
+}
+
+
+
+public function activePost($aid){
+  $sql ="UPDATE tbl_comment SET status = '0' WHERE post_id = '$aid'";
+  $ar = $this->db->update($sql);
+  If($ar){
+   $msg="Post Deactivate & not show";
+   return $msg;
+  }
+}
+
+public function deactivatePost($did){
+  $sql ="UPDATE tbl_comment SET status = '1' WHERE post_id = '$did'";
+  $ar = $this->db->update($sql);
+  If($ar){
+   $msg="Post Activate & show";
+   return $msg;
+  }
+}
+
+
 
 
   }

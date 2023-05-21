@@ -67,7 +67,7 @@
             <div class="collapse navbar-collapse" id="navbarMenu">
               <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                  <a class="nav-link active" href="index.html">Home</a>
+                  <a class="nav-link active" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Business</a>
@@ -75,17 +75,17 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="category.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Travel</a>
                   <div class="dropdown-menu" aria-labelledby="dropdown04">
-                    <a class="dropdown-item" href="category.html">Asia</a>
-                    <a class="dropdown-item" href="category.html">Europe</a>
-                    <a class="dropdown-item" href="category.html">Dubai</a>
-                    <a class="dropdown-item" href="category.html">Africa</a>
-                    <a class="dropdown-item" href="category.html">South America</a>
+                    <a class="dropdown-item" href="category.php">Asia</a>
+                    <a class="dropdown-item" href="category.php">Europe</a>
+                    <a class="dropdown-item" href="category.php">Dubai</a>
+                    <a class="dropdown-item" href="category.php">Africa</a>
+                    <a class="dropdown-item" href="category.php">South America</a>
                   </div>
 
                 </li>
 
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="category.html" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+                  <a class="nav-link dropdown-toggle" href="category.php" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
                   <div class="dropdown-menu" aria-labelledby="dropdown05">
 
                   <?php
@@ -108,10 +108,10 @@
 
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about.html">About</a>
+                  <a class="nav-link" href="about.php">About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact</a>
+                  <a class="nav-link" href="contact.php">Contact</a>
                 </li>
               </ul>
               
