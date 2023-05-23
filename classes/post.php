@@ -120,8 +120,8 @@ class post{
   // }
 
 
-  public function latestPost(){
-  $query = "SELECT tbl_post.*, tbl_user.username, tbl_post.image_one FROM tbl_post INNER JOIN tbl_user ON tbl_post.userId = tbl_user.userId ORDER BY tbl_post.post_id DESC";
+  public function latestPost($offset,$limit){
+  $query = "SELECT tbl_post.*, tbl_user.username, tbl_post.image_one FROM tbl_post INNER JOIN tbl_user ON tbl_post.userId = tbl_user.userId ORDER BY tbl_post.post_id DESC LIMIT $offset, $limit";
   $post_result = $this->db->select($query);
   return $post_result;
   }
@@ -134,6 +134,14 @@ class post{
     $slider_result = $this->db->select($slider_query);
     return $slider_result;
   
+  }
+
+
+
+  public function numPost(){
+    $post_query = "SELECT * FROM tbl_post";
+    $post = $this->db->select($post_query);
+    return $post;
   }
   
 

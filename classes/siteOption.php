@@ -24,6 +24,14 @@ public function aboutInfo(){
 }
 
 
+
+public function latestPost(){
+  $sql ="SELECT tbl_post.*, tbl_user.username, tbl_user.pro_image FROM tbl_post inner join tbl_user on tbl_post.userId = tbl_user.userId WHERE tbl_post.status ='1' order by tbl_post.post_id DESC limit 3";
+  $latest_post_result =$this->db->select($sql);
+  return $latest_post_result;
+}
+
+
 }
 
 ?>
