@@ -67,16 +67,28 @@ $fr  = new Format();
                       ?>
 
                      <ul class="pagination">
-                     <li class="page-item  active"><a class="page-link" href="#">&lt;</a></li>
-                     
+                    <?php if($page>1){?>
+                     <li class="page-item  active"><a class="page-link" href="index.php?page=<?php echo $page-1; ?>">&lt;</a></li>
+                    <?php } ?>
                      <?php 
-                     for($i=1;$i<$total_page; $i++){?>
-
-                     <li class="page-item"><a class="page-link" href="index.php?page=<?php echo $i; ?>"><?php echo $i;?></a></li>
+                     for($i=1;$i<$total_page; $i++){
+                      if($i==$page){
+                        $active ="active";
+                      }else{
+                        $active ='';
+                      }
+                      ?>
+                
+                     <li class="page-item <?php echo $active;?>" ><a class="page-link" href="index.php?page=<?php echo $i; ?>"><?php echo $i;?></a></li>
 
                      <?php }?>
 
-                     <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+                     <?php if($total_page > $page){
+                      ?>
+                      
+                      <li class="page-item"><a class="page-link" href="index.php?page=<?php echo $page+1; ?>">&gt;</a></li>
+                    <?php } ?>
+
                    </ul>
                    <?php } ?>
 
