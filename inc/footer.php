@@ -1,14 +1,27 @@
+
+<?php 
+include_once ('classes/siteOption.php');
+$test = new siteOption();
+?>
 <footer class="site-footer">
         <div class="container">
           <div class="row mb-5">
-            <div class="col-md-4">
+          <?php        
+          $about_new = $test->aboutInfo();
+          if($about_new){
+          while($row = mysqli_fetch_assoc($about_new)) {?>
+         
+         <div class="col-md-4">
               <h3>About Us</h3>
               <p class="mb-4">
                 <img src="images/img_1.jpg" alt="Image placeholder" class="img-fluid">
               </p>
 
-              <p>Lorem ipsum dolor sit amet sa ksal sk sa, consectetur adipisicing elit. Ipsa harum inventore reiciendis. <a href="#">Read More</a></p>
+              <p><?php echo $row['userDetails'];?><a href="about.php "> Read More</a></p>
             </div>
+  
+         <?php  }} ?>
+
             <div class="col-md-6 ml-auto">
               <div class="row">
                 <div class="col-md-7">
