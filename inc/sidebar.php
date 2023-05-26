@@ -1,3 +1,11 @@
+<?php 
+include_once 'classes/User.php';
+include_once 'classes/siteOption.php';
+ $user = new User();
+ $sop = new SiteOption();
+?>
+
+
 
 <div class="col-md-12 col-lg-4 sidebar">
               <div class="sidebar-box search-form-wrap">
@@ -8,24 +16,39 @@
                   </div>
                 </form>
               </div>
+
+
               <!-- END sidebar-box -->
               <div class="sidebar-box">
+                <?php 
+                $profile = $user->userBio();
+                
+                if($profile){
+                 $profile_result = mysqli_fetch_assoc($profile);
+                }
+                ?>
                 <div class="bio text-center">
-                  <img src="images/person_1.jpg" alt="Image Placeholder" class="img-fluid">
+                  <img src="admin/<?php echo $profile_result['pro_image'];?>" alt="Image Placeholder" class="img-fluid">
                   <div class="bio-body">
-                    <h2>David Craig</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt repellendus excepturi beatae porro debitis voluptate nulla quo veniam fuga sit molestias minus.</p>
+                    <h2><?php echo $profile_result['username'];?></h2>
+                    <p><?php echo $profile_result['user_bio'];?></p>
                     <p><a href="#" class="btn btn-primary btn-sm rounded">Read my bio</a></p>
+
+
                     <p class="social">
                       <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
                       <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
                       <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
                       <a href="#" class="p-2"><span class="fa fa-youtube-play"></span></a>
                     </p>
+
+                    
                   </div>
                 </div>
               </div>
               <!-- END sidebar-box -->  
+
+
               <div class="sidebar-box">
                 <h3 class="heading">Popular Posts</h3>
                 <div class="post-entry-sidebar">

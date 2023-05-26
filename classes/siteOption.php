@@ -31,6 +31,12 @@ public function latestPost(){
   return $latest_post_result;
 }
 
+public function allSocial(){
+  $select_query = "SELECT * FROM tbl_social";
+  $select_result = $this->db->select($select_query);
+  return $select_result;
+}
+
 
 }
 
