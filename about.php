@@ -6,8 +6,6 @@ include_once ($filepath.'/classes/siteOption.php');
  
 $about_us = new siteOption();
 
-
-
 ?>
 
     <section class="site-section pt-5">
