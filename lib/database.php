@@ -15,7 +15,7 @@ $filepath = realpath(dirname(__FILE__));
         $this->dbConnect();
     }
 
-
+ ## d connects to the database
     public function dbConnect(){
         $this->link = mysqli_connect($this->host,$this->user,$this->password,$this->database);
         if(!$this->link){
@@ -24,7 +24,7 @@ $filepath = realpath(dirname(__FILE__));
         }
     }
 
-
+## select statement for database connection from database table 
     public function select($query){
         $result = mysqli_query($this->link,$query) or die($this->link->error.__LINE__);
         if(mysqli_num_rows($result)>0){
