@@ -90,16 +90,8 @@ $allPost = $post->AllPost($userId);
                                                     ?>
                                                 </td>
                                                 <td><?php echo $row['post_tags']; ?></td>
-                                                <td>
-                                                    <a href="catEdit.php?editId=<?php echo base64_encode($row['cat_id']); ?>" class="btn btn-warning btn-primary">Edit</a>
-                                                    <a href="?delId=<?php echo base64_encode($row['cat_id']); ?>" onclick="return confirm('Are You Sure Delete <?php echo $row['cat_id']; ?>')" class="btn btn-success btn-danger">Delete</a>
-
-
-                                                    <a href="catEdit.php?editId=<?php echo base64_encode($row['cat_id']); ?>" class="btn btn-success btn-primary">Active</a>
-
-                                                    <a href="?viewId=<?php echo $row['post_id']; ?>"  class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#myModal">View</a>
-
-                                                    <!-- <a href="?viewId=<?php echo $row['post_id']; ?>"  class="btn btn-primary waves-effect waves-light">View</a> -->
+                                                <td style="display:flex;">
+                                                    <a href="catEdit.php?editId=<?php echo base64_encode($row['cat_id']); ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
 
                                                 </td>
                                             </tr>

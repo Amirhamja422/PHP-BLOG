@@ -62,7 +62,7 @@
 
                             <li>
                                 <a href="postAdd.php">
-                                    <i class="uil-home-alt"></i><span class="badge rounded-pill bg-primary float-end">NEW</span>
+                                    <i class="uil-home-alt"></i><span class="badge rounded-pill bg-primary float-end"></span>
                                     <span>Add Post</span>
                                 </a>
                             </li>

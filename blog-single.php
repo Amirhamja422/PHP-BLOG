@@ -99,6 +99,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <form action="#" method="POST" class="p-5 bg-light">
                 <input type="hidden" class="form-control" id="post_id" name="post_id" value="<?php echo $row['post_id'];?>">
+                <input type="hidden" class="form-control" id="user_id" name="user_id" value="<?php echo $row['userId'];?>">
 
                   <div class="form-group">
                     <label for="name">Name *</label>
@@ -126,8 +127,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
 
           </div>
-      <?php }
-      } ?>
 
 
 
@@ -246,44 +245,32 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       </div>
     </div>
     <div class="row">
+      <?php
+      $relPost =new Post();
+      $rel_post = $post->relatedPost($row['cat_id']);
+      if($rel_post){
+       while($rp =mysqli_fetch_assoc($rel_post)){
+
+  
+      ?>
+
       <div class="col-md-6 col-lg-4">
-        <a href="#" class="a-block sm d-flex align-items-center height-md" style="background-image: url('images/img_2.jpg'); ">
+      <a href="blog-single.php?singleId=<?php echo $row['post_id'];?>" class="a-block sm d-flex align-items-center height-md" style="background-image: url('admin/<?php echo $row['image_two']; ?>'); ">
           <div class="text">
             <div class="post-meta">
-              <span class="category">Lifestyle</span>
+              <span class="category"><?php echo $rp['cat_name']; ?></span>
               <span class="mr-2">March 15, 2018 </span> &bullet;
               <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
             </div>
-            <h3>There’s a Cool New Way for Men to Wear Socks and Sandals</h3>
+            <h3><?php echo $row['post_title'];?></h3>
           </div>
         </a>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <a href="#" class="a-block sm d-flex align-items-center height-md" style="background-image: url('images/img_3.jpg'); ">
-          <div class="text">
-            <div class="post-meta">
-              <span class="category">Travel</span>
-              <span class="mr-2">March 15, 2018 </span> &bullet;
-              <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-            </div>
-            <h3>There’s a Cool New Way for Men to Wear Socks and Sandals</h3>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <a href="#" class="a-block sm d-flex align-items-center height-md" style="background-image: url('images/img_4.jpg'); ">
-          <div class="text">
-            <div class="post-meta">
-              <span class="category">Food</span>
-              <span class="mr-2">March 15, 2018 </span> &bullet;
-              <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-            </div>
-            <h3>There’s a Cool New Way for Men to Wear Socks and Sandals</h3>
-          </div>
-        </a>
-      </div>
+      <?php } } ?>
+
     </div>
   </div>
+  <?php } } ?>
 
 
 </section>

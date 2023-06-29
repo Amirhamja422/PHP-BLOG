@@ -144,9 +144,17 @@ class post{
     return $post;
   }
   
+  public function totalCategory(){
+    $total_query ="SELECT * FROM tbl_category";
+    $total_cat = $this->db->select($total_query);
+    return $total_cat;
+  }
 
-
-
+  public function relatedPost($id){
+   $rel_query ="SELECT tbl_post.*,tbl_category.cat_name FROM tbl_post INNER JOIN tbl_category ON tbl_post.cat_id ='$id' ORDER BY tbl_post.cat_id DESC LIMIT 1";
+   $rel_result = $this->db->select($rel_query);
+   return $rel_result;
+  }
 }
 
 ?>

@@ -24,6 +24,12 @@ class user{
  }
 
 
+ public function totalUser(){
+   $user_query ="SELECT * FROM tbl_user";
+   $total_user = $this->db->select($user_query);
+   return $total_user;
+ }
+
 
 
 
