@@ -80,7 +80,26 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                       </div>
 
                       </ul>
+
+
+
+                    <ul class="comment-list">
+                    <li class="comment">
+                     <div class="vcard">
+                       <img src="images/person_1.jpg" alt="Image placeholder">
+                     </div>
+                      <div class="comment-body">
+                        <h3><?php echo $rows['name']; ?></h3>
+                        <div class="meta"><?php echo $fr->formatDate($rows['created_time']); ?></div>
+                        <p><?php echo $rows['admin_replay']; ?></p>
+                      </div>
+
+                    </ul>
+
+
                   <?php  } }?>
+
+                    
 
 
               <!-- END comment-list -->

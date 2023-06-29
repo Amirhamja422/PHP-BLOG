@@ -115,6 +115,9 @@ public function addReplay($replay,$cmtId){
     if($up_response){
      $msg ='Replay successfully updated';
      return $msg;
+    }else{
+      $msg ='Replay failed';
+      return $msg;
     }
   }
 
