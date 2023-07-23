@@ -69,8 +69,7 @@ $allComment = $comment->allComments($userId);
                                                     <a href="?delId=<?php echo base64_encode($row['cmtId']); ?>" onclick="return confirm('Are You Sure Delete <?php echo $row['cmtId']; ?>')" class="btn btn-primary"><i class="fas fa-arrow-down"></i></a>
                                                 </td>
                                             </tr>
-                                    <?php }
-                                    } ?>
+                                    <?php } } ?>
                                 </tbody>
                            </table>
                         </div>

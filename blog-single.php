@@ -91,12 +91,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                       <div class="comment-body">
                         <h3><?php echo $rows['name']; ?></h3>
                         <div class="meta"><?php echo $fr->formatDate($rows['created_time']); ?></div>
-                        <p><?php echo $rows['admin_replay']; ?></p>
+                        <p>
+                          <?php
+                          $msg_replay = preg_replace('#\<p>[{\w},\s\d"]+\</p>#', "", $rows['admin_replay']);
+                          echo $msg_replay;
+                        ?></p>
                       </div>
-
                     </ul>
-
-
                   <?php  } }?>
 
                     
